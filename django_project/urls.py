@@ -20,6 +20,5 @@ from django.urls import path, include
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('', include('blog.urls')),
-    path('', lambda request: redirect('blog-home')),
+    path('', include('blog.urls'))
     ]

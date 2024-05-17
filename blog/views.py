@@ -1,31 +1,27 @@
 from django.shortcuts import render, redirect
 from django.http import HttpResponse
-
-posts= [
-    {
-        'author': 'Harsha Varma',
-        'title': 'Blog Post 1',
-        'content': 'first post content',
-        'date_posted': 'May 15th, 2003'
-    },
-      
-    {
-        'author': 'Varma',
-        'title': 'Blog Post 2',
-        'content': 'second post content',
-        'date_posted': 'May 16th, 2003'
-    }
-]
+from django.contrib.auth import authenticate, login
+from .models import Post
 
 def home(request):
-    context = {
-        'posts': posts 
-    }
-    return render(request, 'blog/home.html', context)
+    posts = Post.objects.all()
+    return render(request, 'blog/home.html', {'posts':posts}) 
 
 def about(request):
     return render(request, 'blog/about.html', {'title':'About' })
 
 def contact(request):
     return render(request, 'blog/contact.html', {'title':'Contact' })
-    
+#login
+def user_login(request):
+    if request.method == 'POST':
+        username = request.POST.get('username')
+        password = request.POST.get('password')
+        user = authenticate(request, username=username, password=password)
+        if user is not None:
+            login(request, user)
+            return redirect('blog-home')  # Redirect to home page after successful login
+        else:
+            return HttpResponse('Invalid login credentials')  # Display error message
+    else:
+        return render(request, 'blog/login.html')
