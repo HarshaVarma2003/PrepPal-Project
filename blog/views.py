@@ -1,4 +1,4 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from django.http import HttpResponse
 
 posts= [
@@ -25,3 +25,7 @@ def home(request):
 
 def about(request):
     return render(request, 'blog/about.html', {'title':'About' })
+
+def contact(request):
+    return render(request, 'blog/contact.html', {'title':'Contact' })
+    
