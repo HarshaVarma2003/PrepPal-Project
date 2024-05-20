@@ -1,7 +1,7 @@
 <!-- blog/post_detail.html -->
 {% extends "blog/base.html" %}
 {% block content %}
-    <body class="content-bg">
+    <body class="post-detail-bg" style="background-image: url('{% if post.image_url %}{{ post.image_url }}{% else %}path/to/default/image.jpg{% endif %}')">
         <article class="media content-section">
             <div class="media-body">
                 <div class="article-metadata">
@@ -14,5 +14,3 @@
         </article>
     </body>
 {% endblock content %}
-
-

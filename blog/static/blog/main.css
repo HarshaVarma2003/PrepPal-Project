@@ -84,15 +84,31 @@ body {
   }
 
   .homepage-bg {
-    background-image: url("C:\Users\khars\Downloads\bg.jpeg.jpeg");
+    background-image: url("/static/blog/images/homebg.jpg");
     background-size: cover;
-  }
+    background-position: center;
+    background-repeat: no-repeat;
+}
 
   /* For the content pages */
   .content-bg { 
-    background-image: url("C:\Users\khars\Downloads\pexels-scottwebb-3255761.jpg");
+    background-image: url("/static/blog/images/detailbg.jpeg");
     background-size: cover;
+    background-attachment: fixed;
+    background-position: center;
+}
+
+  .post-detail-bg {
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
   }
+
+  .custom-bg {
+    background-size: cover;
+    background-attachment: fixed;
+  }
+
 /* For rounded borders */
 .blog-post {
   border-radius: 40px;
