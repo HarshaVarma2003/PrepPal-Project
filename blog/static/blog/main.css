@@ -8,7 +8,7 @@ body {
     color: #444444;
   }
   
-  ul {
+  .ul {
     margin: 0;
   }
   
@@ -82,3 +82,18 @@ body {
   .account-heading {
     font-size: 2.5rem;
   }
+
+  .homepage-bg {
+    background-image: url("C:\Users\khars\Downloads\bg.jpeg.jpeg");
+    background-size: cover;
+  }
+
+  /* For the content pages */
+  .content-bg { 
+    background-image: url("C:\Users\khars\Downloads\pexels-scottwebb-3255761.jpg");
+    background-size: cover;
+  }
+/* For rounded borders */
+.blog-post {
+  border-radius: 40px;
+}
