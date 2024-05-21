@@ -31,4 +31,5 @@ def user_login(request):
             return HttpResponse('Invalid login credentials')  # Display error message
     else:
         return render(request, 'blog/login.html')
-
+    
+    
