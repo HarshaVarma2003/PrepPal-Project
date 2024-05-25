@@ -9,16 +9,16 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css">
     <link rel="stylesheet" type="text/css" href="{% static 'blog/main.css' %}">
     {% if title %}
-        <title>Django Blog - {{ title }}</title>
+        <title>PrepPal - {{ title }}</title>
     {% else %}
-        <title>Django Blog</title>
+        <title>PrepPal</title>
     {% endif %}
 </head>
 <body>
     <header class="site-header">
         <nav class="navbar navbar-expand-md navbar-dark bg-steel fixed-top">
             <div class="container">
-                <a class="navbar-brand mr-4" href="/">Django Blog</a>
+                <a class="navbar-brand mr-4" href="/">PrepPal</a>
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarToggle" aria-controls="navbarToggle" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
                 </button>
@@ -26,7 +26,7 @@
                     <div class="navbar-nav mr-auto">
                         <a class="nav-item nav-link" href="{% url 'blog-home' %}">Home</a>
                         <a class="nav-item nav-link" href="{% url 'blog-about' %}">About</a>
-                        <a class="nav-item nav-link" href="{% url 'blog-contact' %}">Contact</a>
+                        <a class="nav-item nav-link" href="{% url 'blog-help' %}">help</a>
                     </div>
                     <!-- Navbar Right Side -->
                     <div class="navbar-nav">

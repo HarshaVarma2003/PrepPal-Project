@@ -113,3 +113,43 @@ body {
 .blog-post {
   border-radius: 40px;
 }
+
+/* Add this CSS to your existing stylesheet */
+.section {
+    border: 1px solid #ccc;
+    padding: 10px;
+    border-radius: 5px;
+    margin-bottom: 20px;
+}
+
+.section h2 {
+    margin-top: 0;
+}
+
+.tab-container {
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    padding: 10px;
+}
+
+.tab-container h3 {
+    margin-top: 0;
+}
+
+.subject-list {
+    list-style: none;
+    padding: 0;
+}
+
+.subject-list li {
+    margin-bottom: 5px;
+}
+
+.subject-list li a {
+    text-decoration: none;
+    color: #333;
+}
+
+.subject-list li a:hover {
+    color: #007bff;
+}

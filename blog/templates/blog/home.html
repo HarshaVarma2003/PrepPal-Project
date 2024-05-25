@@ -1,17 +1,39 @@
-<!-- blog-home.html -->
 {% extends "blog/base.html" %}
 {% block content %}
-    <body class="homepage-bg">
-        {% for post in posts %}
-            <article class="media content-section">
-            <div class="media-body">
-                <div class="article-metadata">
-                    <a class="mr-2" href="#">{{ post.author }}</a>
-                    <small class="text-muted">{{ post.date_posted }}</small>
+    <div class="row">
+        <!-- Main section with exam materials -->
+        <div class="col-md-6">
+            <div class="section">
+                <h2>Exam Materials</h2>
+                <div class="tab-container">
+                    <h3>Subjects</h3>
+                    <ul class="subject-list">
+                        {% for subject in subjects %}
+                            <li><a href="{% url 'subject-detail' subject.id %}">{{ subject.name }}</a></li>
+                        {% endfor %}
+                    </ul>
                 </div>
-                <h2><a class="article-title" href="{% url 'post-detail' post.id %}">{{ post.title }}</a></h2>
-                <p class="article-content">{{ post.subject }}</p>
             </div>
-        </article>
-    {% endfor %}
+        </div>
+        <!-- Group Forums section -->
+        <div class="col-md-3">
+            <div class="section">
+                <h2>Group Forums</h2>
+                <!-- Add your content here -->
+                <ul>
+                    {% for forum in forums %}
+                        <li><a href="{% url 'forum-detail' forum.id %}">{{ forum.title }}</a></li>
+                    {% endfor %}
+                </ul>
+            </div>
+        </div>
+        <!-- Calendar section -->
+        <div class="col-md-3">
+            <div class="section">
+                <h2>Calendar</h2>
+                <!-- Add your content here -->
+                <div id="calendar"></div>
+            </div>
+        </div>
+    </div>
 {% endblock content %}
