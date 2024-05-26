@@ -2,7 +2,7 @@
 {% block content %}
     <div class="row">
         <!-- Main section with exam materials -->
-        <div class="col-md-6">
+        <div class="col-md-5">
             <div class="section">
                 <h2>Exam Materials</h2>
                 <div class="tab-container">
@@ -19,8 +19,8 @@
                 </div>
             </div>
         </div>
-        <!-- announcements section -->
-        <div class="col-md-6">
+        <!-- Announcements section -->
+        <div class="col-md-5">
             <div class="section">
                 <h2>Announcements</h2>
                 <ul>
@@ -35,14 +35,16 @@
                 </ul>
             </div>
         </div>
-        <!-- Calendar section -->
-        <div class="section">
-            <h2>Add Reminder</h2>
-            <form method="post">
-                {% csrf_token %}
-                {{ form.as_p }}
-                <button type="submit">Add Reminder</button>
-            </form>
+        <!-- Add Reminder section -->
+        <div class="col-md-2">
+            <div class="section add-reminder-section">
+                <h2>Add Reminder</h2>
+                <form method="post">
+                    {% csrf_token %}
+                    {{ form.as_p }}
+                    <button type="submit">Add Reminder</button>
+                </form>
+            </div>
         </div>
     </div>
 {% endblock content %}
