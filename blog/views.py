@@ -1,9 +1,7 @@
-# blog/views.py
 from django.shortcuts import render, get_object_or_404, redirect
 from django.http import HttpResponse
 from django.contrib.auth import authenticate, login
-from .models import Post, Subject, StudyMaterial, PreviousYearQuestion
-from .models import Subject
+from .models import Post, Subject, StudyMaterial, PreviousYearQuestion, Announcement
 
 def home(request):
     query = request.GET.get('q')
@@ -11,8 +9,9 @@ def home(request):
         subjects = Subject.objects.filter(name__icontains=query)
     else:
         subjects = Subject.objects.all()
-    forums = []  # Assuming you have a forum model
-    return render(request, 'blog/home.html', {'subjects': subjects, 'forums': forums})
+    # Assuming you have a queryset for announcements as well
+    announcements = Announcement.objects.all()
+    return render(request, 'blog/home.html', {'subjects': subjects, 'announcements': announcements})
 
 def about(request):
     return render(request, 'blog/about.html', {'title': 'About'})

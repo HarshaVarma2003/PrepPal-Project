@@ -54,3 +54,11 @@ class Comment(models.Model):
 
     def __str__(self):
         return f'Comment by {self.created_by} on {self.forum}'
+
+class Announcement(models.Model):
+    name = models.CharField(max_length=200)
+    date = models.DateField()
+    link = models.URLField(blank=True, null=True)
+
+    def __str__(self):
+        return self.name
