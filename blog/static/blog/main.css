@@ -153,3 +153,17 @@ body {
 .subject-list li a:hover {
     color: #007bff;
 }
+
+.search-form {
+  margin-bottom: 20px;
+}
+
+.search-form input[type="text"] {
+  width: calc(100% - 100px);
+  padding: 5px;
+  margin-right: 10px;
+}
+
+.search-form button {
+  padding: 5px 10px;
+}

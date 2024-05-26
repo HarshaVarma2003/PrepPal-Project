@@ -7,6 +7,10 @@
                 <h2>Exam Materials</h2>
                 <div class="tab-container">
                     <h3>Subjects</h3>
+                    <form method="get" action="{% url 'blog-home' %}">
+                        <input type="text" name="q" placeholder="Search subjects" value="{{ request.GET.q }}">
+                        <button type="submit">Search</button>
+                    </form>
                     <ul class="subject-list">
                         {% for subject in subjects %}
                             <li><a href="{% url 'subject-detail' subject.id %}">{{ subject.name }}</a></li>

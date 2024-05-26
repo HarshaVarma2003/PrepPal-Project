@@ -1,0 +1,10 @@
+{% extends "blog/base.html" %}
+{% block content %}
+    <h2>Forums</h2>
+    <a href="{% url 'create-forum' %}" class="btn btn-primary mb-3">Create New Forum</a>
+    <ul>
+        {% for forum in forums %}
+            <li><a href="{% url 'forum-detail' forum.id %}">{{ forum.title }}</a> by {{ forum.created_by }}</li>
+        {% endfor %}
+    </ul>
+{% endblock %}
