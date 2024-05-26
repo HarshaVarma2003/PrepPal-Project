@@ -1,7 +1,7 @@
 # blog/forms.py
 
 from django import forms
-from .models import Forum, Comment
+from .models import Forum, Comment, Reminder
 
 class ForumForm(forms.ModelForm):
     class Meta:
@@ -12,3 +12,8 @@ class CommentForm(forms.ModelForm):
     class Meta:
         model = Comment
         fields = ['content']
+        
+class ReminderForm(forms.ModelForm):
+    class Meta:
+        model = Reminder
+        fields = ['date', 'description']

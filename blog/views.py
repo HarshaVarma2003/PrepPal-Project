@@ -1,17 +1,39 @@
+# views.py
 from django.shortcuts import render, get_object_or_404, redirect
 from django.http import HttpResponse
 from django.contrib.auth import authenticate, login
-from .models import Post, Subject, StudyMaterial, PreviousYearQuestion, Announcement
+from .models import Post, Subject, StudyMaterial, PreviousYearQuestion, Announcement, Reminder
+from .forms import ReminderForm
 
 def home(request):
+    # Query for subjects
     query = request.GET.get('q')
     if query:
         subjects = Subject.objects.filter(name__icontains=query)
     else:
         subjects = Subject.objects.all()
-    # Assuming you have a queryset for announcements as well
+
+    # Query for announcements
     announcements = Announcement.objects.all()
-    return render(request, 'blog/home.html', {'subjects': subjects, 'announcements': announcements})
+
+    # Handle reminder form submission
+    if request.method == 'POST':
+        form = ReminderForm(request.POST)
+        if form.is_valid():
+            form.save()
+            return redirect('blog-home')
+    else:
+        form = ReminderForm()
+
+    # Query for reminders
+    reminders = Reminder.objects.all()
+
+    return render(request, 'blog/home.html', {
+        'subjects': subjects,
+        'announcements': announcements,
+        'form': form,
+        'reminders': reminders
+    })
 
 def about(request):
     return render(request, 'blog/about.html', {'title': 'About'})
@@ -26,7 +48,7 @@ def post_detail(request, post_id):
 def subject_detail(request, subject_id):
     subject = get_object_or_404(Subject, id=subject_id)
     study_materials = subject.study_materials.all()
-    previous_questions = subject.previousyearquestion_set.all()  # Fetch previous year questions related to the subject
+    previous_questions = subject.previousyearquestion_set.all()
     return render(request, 'blog/subject_detail.html', {
         'subject': subject,
         'study_materials': study_materials,
@@ -41,8 +63,8 @@ def user_login(request):
         user = authenticate(request, username=username, password=password)
         if user is not None:
             login(request, user)
-            return redirect('blog-home')  # Redirect to home page after successful login
+            return redirect('blog-home')
         else:
-            return HttpResponse('Invalid login credentials')  # Display error message
+            return HttpResponse('Invalid login credentials')
     else:
         return render(request, 'blog/login.html')

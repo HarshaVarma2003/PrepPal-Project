@@ -36,12 +36,13 @@
             </div>
         </div>
         <!-- Calendar section -->
-        <div class="col-md-3">
-            <div class="section">
-                <h2>Calendar</h2>
-                <!-- Add your content here -->
-                <div id="calendar"></div>
-            </div>
+        <div class="section">
+            <h2>Add Reminder</h2>
+            <form method="post">
+                {% csrf_token %}
+                {{ form.as_p }}
+                <button type="submit">Add Reminder</button>
+            </form>
         </div>
     </div>
 {% endblock content %}

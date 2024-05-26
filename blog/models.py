@@ -62,3 +62,7 @@ class Announcement(models.Model):
 
     def __str__(self):
         return self.name
+    
+class Reminder(models.Model):
+    date = models.DateField()
+    description = models.CharField(max_length=255)
