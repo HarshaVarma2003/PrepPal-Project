@@ -1,181 +1,38 @@
-body {
-  background: #fcf3ec; /* Updated background color */
-  color: #333333;
-  margin-top: 5rem;
-}
+/* main.css */
 
-h1, h2, h3, h4, h5, h6 {
-  color: #444444;
-}
-
-.ul {
+/* Resetting styles */
+body, html {
   margin: 0;
+  padding: 0;
 }
 
-.bg-steel {
-  background-color: #007467; /* Updated navbar color */
+/* Setting up row */
+.row {
+  display: flex;
+  flex-wrap: wrap;
 }
 
-.site-header .navbar-nav .nav-link {
-  color: #cbd5db;
+/* Column styles */
+.col-md-5 {
+  box-sizing: border-box;
+  padding: 15px;
 }
 
-.site-header .navbar-nav .nav-link:hover {
-  color: #cec2c2;
-}
-
-.site-header .navbar-nav .nav-link.active {
-  font-weight: 500;
-}
-
-.content-section {
-  background: #ffffff;
-  padding: 10px 20px;
-  border: 1px solid #dddddd;
-  border-radius: 3px;
-  margin-bottom: 20px;
-}
-
-.article-title {
-  color: #444444;
-}
-
-a.article-title:hover {
-  color: #428bca;
-  text-decoration: none;
-}
-
-.article-content {
-  white-space: pre-line;
-}
-
-.article-img {
-  height: 65px;
-  width: 65px;
-  margin-right: 16px;
-}
-
-.article-metadata {
-  padding-bottom: 1px;
-  margin-bottom: 4px;
-  border-bottom: 1px solid #e3e3e3;
-}
-
-.article-metadata a:hover {
-  color: #333;
-  text-decoration: none;
-}
-
-.article-svg {
-  width: 25px;
-  height: 25px;
-  vertical-align: middle;
-}
-
-.account-img {
-  height: 125px;
-  width: 125px;
-  margin-right: 20px;
-  margin-bottom: 16px;
-}
-
-.account-heading {
-  font-size: 2.5rem;
-}
-
-.homepage-bg {
-  background-image: url("/static/blog/images/homebg.jpg");
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
-}
-
-.content-bg {
-  background-image: url("/static/blog/images/detailbg.jpeg");
-  background-size: cover;
-  background-attachment: fixed;
-  background-position: center;
-}
-
-.post-detail-bg {
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
-}
-
-.custom-bg {
-  background-size: cover;
-  background-attachment: fixed;
-}
-
-.blog-post {
-  border-radius: 40px;
-}
-
+/* Section styles */
 .section {
-  background-color: #fcf3ec; /* Use the background color you specified */
+  background-color: #fcf3ec;
   border: 1px solid #ccc;
   padding: 20px;
   border-radius: 5px;
   margin-bottom: 20px;
-  word-wrap: break-word; /* Ensure text wraps properly */
 }
 
 .section h2 {
   margin-top: 0;
 }
 
-.tab-container {
-  border: 1px solid #ccc;
-  border-radius: 5px;
-  padding: 10px;
-}
-
-.tab-container h3 {
-  margin-top: 0;
-}
-
-.subject-list {
-  list-style: none;
-  padding: 0;
-}
-
-.subject-list li {
-  margin-bottom: 5px;
-}
-
-.subject-list li a {
-  text-decoration: none;
-  color: #333;
-}
-
-.subject-list li a:hover {
-  color: #007bff;
-}
-
-.search-form {
-  margin-bottom: 20px;
-}
-
-.search-form input[type="text"] {
-  width: calc(100% - 100px);
-  padding: 5px;
-  margin-right: 10px;
-}
-
-.search-form button {
-  padding: 5px 10px;
-}
-
-/* Existing styles */
+/* Add Reminder section */
 .add-reminder-section {
-  width: 100%; /* Ensure full width within the column */
+  width: 100%; /* Full width */
+  margin-top: 20px; /* Add margin to separate from above section */
 }
-
-/* Additional style to increase width */
-@media (min-width: 992px) {
-  .add-reminder-section {
-      min-width: 250px; /* Adjust as needed */
-  }
-}
-

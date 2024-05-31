@@ -8,10 +8,10 @@ class ForumForm(forms.ModelForm):
         model = Forum
         fields = ['title']
 
-class CommentForm(forms.ModelForm):
+class CommentForm(forms.ModelForm): 
     class Meta:
         model = Comment
-        fields = ['content']
+        fields = ['content', 'file']
         
 class ReminderForm(forms.ModelForm):
     class Meta:

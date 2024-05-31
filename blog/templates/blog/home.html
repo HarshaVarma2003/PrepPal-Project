@@ -1,50 +1,62 @@
+<!-- home.html -->
 {% extends "blog/base.html" %}
 {% block content %}
-    <div class="row">
-        <!-- Main section with exam materials -->
-        <div class="col-md-5">
-            <div class="section">
-                <h2>Exam Materials</h2>
-                <div class="tab-container">
-                    <h3>Subjects</h3>
-                    <form method="get" action="{% url 'blog-home' %}">
-                        <input type="text" name="q" placeholder="Search subjects" value="{{ request.GET.q }}">
-                        <button type="submit">Search</button>
-                    </form>
-                    <ul class="subject-list">
-                        {% for subject in subjects %}
-                            <li><a href="{% url 'subject-detail' subject.id %}">{{ subject.name }}</a></li>
-                        {% endfor %}
-                    </ul>
-                </div>
-            </div>
-        </div>
-        <!-- Announcements section -->
-        <div class="col-md-5">
-            <div class="section">
-                <h2>Announcements</h2>
-                <ul>
-                    {% for announcement in announcements %}
-                        <li>
-                            <strong>{{ announcement.name }}</strong> - {{ announcement.date }}
-                            {% if announcement.link %}
-                                <a href="{{ announcement.link }}">More info</a>
-                            {% endif %}
-                        </li>
+<div class="row">
+    <!-- Main section with exam materials -->
+    <div class="col-md-5">
+        <div class="section">
+            <h2>Exam Materials</h2>
+            <div class="tab-container">
+                <h3>Subjects</h3>
+                <form method="get" action="{% url 'blog-home' %}">
+                    <input type="text" name="q" placeholder="Search subjects" value="{{ request.GET.q }}">
+                    <button type="submit">Search</button>
+                </form>
+                <ul class="subject-list">
+                    {% for subject in subjects %}
+                        <li><a href="{% url 'subject-detail' subject.id %}">{{ subject.name }}</a></li>
                     {% endfor %}
                 </ul>
             </div>
         </div>
-        <!-- Add Reminder section -->
-        <div class="col-md-2">
-            <div class="section add-reminder-section">
-                <h2>Add Reminder</h2>
-                <form method="post">
-                    {% csrf_token %}
-                    {{ form.as_p }}
-                    <button type="submit">Add Reminder</button>
-                </form>
-            </div>
+    </div>
+    <!-- Announcements section -->
+    <div class="col-md-5">
+        <div class="section">
+            <h2>Alerts</h2>
+            <ul>
+                {% for announcement in announcements %}
+                    <li>
+                        <strong>{{ announcement.name }}</strong> - {{ announcement.date }}
+                        {% if announcement.link %}
+                            <a href="{{ announcement.link }}">More info</a>
+                        {% endif %}
+                    </li>
+                {% endfor %}
+            </ul>
         </div>
     </div>
+    <!-- Forums section -->
+    <div class="col-md-1.5">
+        <div class="section forums-section">
+            <h2>Forums</h2>
+            <ul>
+                <li><a href="{% url 'forum-list' %}">View All Forums</a></li>
+            </ul>
+        </div>
+    </div>
+</div>
+<div class="row">
+    <!-- Add Reminder section -->
+    <div class="col-md-1">
+        <div class="section add-reminder-section">
+            <h2>Add Reminder</h2>
+            <form method="post">
+                {% csrf_token %}
+                {{ form.as_p }}
+                <button type="submit">Add Reminder</button>
+            </form>
+        </div>
+    </div>
+</div>
 {% endblock content %}

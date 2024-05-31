@@ -43,12 +43,13 @@ class Forum(models.Model):
     created_at = models.DateTimeField(default=timezone.now)
     created_by = models.ForeignKey(User, on_delete=models.CASCADE)
 
-    def __str__(self):
+    def __str__(self):      
         return self.title
 
 class Comment(models.Model):
     forum = models.ForeignKey(Forum, related_name='comments', on_delete=models.CASCADE)
     content = models.TextField()
+    file = models.FileField(upload_to='forum_files/', blank=True, null=True)  # Add file field
     created_at = models.DateTimeField(default=timezone.now)
     created_by = models.ForeignKey(User, on_delete=models.CASCADE)
 

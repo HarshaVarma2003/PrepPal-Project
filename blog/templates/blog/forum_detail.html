@@ -1,0 +1,20 @@
+{% extends "blog/base.html" %}
+{% block content %}
+    <h2>{{ forum.title }}</h2>
+    <div>
+        {% for comment in comments %}
+            <div>
+                <strong>{{ comment.created_by.username }}</strong>: {{ comment.content }}
+                {% if comment.file %}
+                    <a href="{{ comment.file.url }}">Download Attachment</a>
+                {% endif %}
+                <small>{{ comment.created_at }}</small>
+            </div>
+        {% endfor %}
+    </div>
+    <form method="post" enctype="multipart/form-data">
+        {% csrf_token %}
+        {{ comment_form.as_p }}
+        <button type="submit">Add Comment</button>
+    </form>
+{% endblock %}
